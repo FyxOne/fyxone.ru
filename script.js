@@ -37,6 +37,26 @@ document.addEventListener('DOMContentLoaded', function() {
             name: "Half Life",
             url: "https://x8bitrain.github.io/webXash/",
             orientation: "horizontal"
+        },
+        {
+            name: "Subway Surfers", 
+            url: "https://lnahtml.github.io/a8/subway-surfers-newyork",
+            orientation: "vertical"
+        },
+        {
+            name: "Minecraft Classic", 
+            url: "https://emupedia.net/emupedia-game-minecraft-classic/",
+            orientation: "horizontal"
+        },
+        {
+            name: "Fruit Ninja", 
+            url: "https://emupedia.net/emupedia-game-fruit-ninja/",
+            orientation: "horizontal"
+        },
+        {
+            name: "Minesweeper", 
+            url: "https://emupedia.net/emupedia-game-minesweeper/",
+            orientation: "vertical"
         }
     ];
 
