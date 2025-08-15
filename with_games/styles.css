@@ -1,0 +1,251 @@
+/* Основные стили */
+body {
+    min-height: 100vh;
+    background: rgb(65,20,255);
+    background: linear-gradient(90deg, rgba(65,20,255,1) 0%, rgba(0,212,255,1) 100%);
+    color: #fdffe3;
+    font-family: "Host Grotesk", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.everything {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 420px;
+    background-color: rgba(17, 17, 17, 0.9);
+    border-radius: 20px;
+    padding: 30px;
+    margin: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    box-sizing: border-box;
+}
+
+/* Шапка профиля */
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.pfp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px 0 10px 0;
+}
+
+.name {
+    display: flex;
+    justify-content: center;
+    font-size: 35px;
+    margin-bottom: 3px;
+}
+
+.dis {
+    display: flex;
+    justify-content: center;
+    font-size: 15px;
+    color: #ffffff;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Ссылки и кнопки */
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Общие стили для всех кнопок и ссылок */
+.github, .youtube, .twitch, .steam, 
+.telegram, .donationalerts, .game-btn {
+    display: flex;
+    height: 50px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    transition: all 0.2s ease;
+    color: #fdffe3;
+    text-decoration: none;
+    font-size: 15pt;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* Цвета кнопок */
+.youtube { background-color: #FF0033; }
+.twitch { background-color: #7b00ff; }
+.steam { background-color: #00316d; }
+.telegram { background-color: #00a2ff; }
+.donationalerts { background-color: #ff8010; }
+.github { background-color: #2d2d2d; }
+
+/* Кнопка Game */
+.game-btn {
+    background-color: #4CAF50;
+    margin-top: 15px;
+    order: 100;
+}
+
+/* Кнопка Back */
+#backBtn, #backToGamesBtn {
+    background-color: #f44336;
+    order: 101;
+    margin-top: 15px;
+}
+
+/* Эффекты при наведении */
+.github:hover, .youtube:hover, .twitch:hover, 
+.steam:hover, .telegram:hover, .donationalerts:hover, 
+.game-btn:hover, #backBtn:hover, #backToGamesBtn:hover {
+    transform: scale(1.02);
+    opacity: 0.9;
+}
+
+/* Стили для игрового контейнера */
+.game-container {
+    width: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 10px 0;
+    background: #000;
+    position: relative;
+}
+
+/* Горизонтальные игры (16:9) */
+.game-container.horizontal {
+    aspect-ratio: 16/9;
+}
+
+/* Вертикальные игры */
+.game-container.vertical {
+    height: 500px;
+}
+
+.game-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+/* Контролы масштабирования игры */
+.game-zoom-controls {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.8);
+    padding: 10px 15px;
+    border-radius: 20px;
+    display: none; /* По умолчанию скрыты */
+    align-items: center;
+    gap: 10px;
+    z-index: 1000;
+}
+
+#gameZoom {
+    width: 150px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    height: 6px;
+    background: #ddd;
+    border-radius: 3px;
+    margin: 0;
+}
+
+#gameZoom::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+#gameZoom::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+    border: none;
+}
+
+#zoomValue {
+    color: white;
+    font-size: 14px;
+    min-width: 40px;
+    text-align: center;
+}
+
+.zoom-btn {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* Адаптивность */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    
+    .box {
+        padding: 20px;
+        margin: 10px;
+    }
+    
+    .game-container.vertical {
+        height: 400px;
+    }
+    
+    .game-zoom-controls {
+        width: 90%;
+        padding: 8px 12px;
+    }
+    
+    #gameZoom {
+        width: 100px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .box {
+        max-width: 450px;
+    }
+    
+    .game-container.horizontal {
+        max-height: 600px;
+    }
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FyxOne</title>
+    <link rel="stylesheet" href="styles.css?v=1.5">
+    <link rel="icon" href="pfp.png" type="image/png">
+</head>
+<body>
+    <div class="everything">
+        <div class="box">
+            <div class="header">
+                <div class="pfp"><img src="pfp.png" alt="pfp" width="100"></div>
+                <div class="name">FyxOne</div>
+                <div class="dis">Мой ник читается как Фи́ксон.</div>
+            </div>
+            <div class="links" id="linksContainer">
+                <!-- Содержимое будет динамически обновляться -->
+            </div>
+        </div>
+    </div>
+    
+    <div class="game-zoom-controls" style="display:none">
+        <input type="range" id="gameZoom" min="10" max="200" value="100" step="1">
+        <span id="zoomValue">100%</span>
+        <button id="resetZoom" class="zoom-btn">Сброс</button>
+    </div>
+
+    <script src="script.js?v=1.5"></script>
+</body>
+</html>

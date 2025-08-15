@@ -6,6 +6,9 @@
     <title>FyxOne</title>
     <link rel="stylesheet" href="styles.css?v=1.5">
     <link rel="icon" href="pfp.png" type="image/png">
+
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
     <div class="everything">
@@ -16,17 +19,26 @@
                 <div class="dis">Мой ник читается как Фи́ксон.</div>
             </div>
             <div class="links" id="linksContainer">
-                <!-- Содержимое будет динамически обновляться -->
+                <a href="https://www.youtube.com/@FyxOne_" class="youtube">
+                    <i class="fab fa-youtube"></i> YouTube
+                </a>
+                <a href="https://www.twitch.tv/fyxone" class="twitch">
+                    <i class="fab fa-twitch"></i> Twitch
+                </a>
+                <a href="https://t.me/fyxone_alstr" class="telegram">
+                    <i class="fab fa-telegram"></i> Telegram
+                </a>
+                <a href="https://steamcommunity.com/id/FyxOne/" class="steam">
+                    <i class="fab fa-steam"></i> Steam
+                </a>
+                <a href="https://github.com/FyxOne" class="github">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="http://place.fyxone.ru" class="place">
+                    <i class="fas fa-place"></i> place.fyxone
+                </a>
             </div>
         </div>
     </div>
-    
-    <div class="game-zoom-controls" style="display:none">
-        <input type="range" id="gameZoom" min="10" max="200" value="100" step="1">
-        <span id="zoomValue">100%</span>
-        <button id="resetZoom" class="zoom-btn">Сброс</button>
-    </div>
-
-    <script src="script.js?v=1.5"></script>
 </body>
 </html>
