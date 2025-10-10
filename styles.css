@@ -1,19 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     min-height: 100vh;
-    background: linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%);
+    background: #1a1a2e;
     color: #fdffe3;
     font-family: "Host Grotesk", sans-serif;
     font-weight: 400;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.pixel-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://i.pinimg.com/originals/2c/57/34/2c5734d38a861a38c81e52e52d7c27a6.gif');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.8;
+    z-index: -1;
+}
+
+.audio-controls {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 1000;
+}
+
+.music-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+}
+
+.music-btn:hover {
+    background: rgba(0, 0, 0, 0.9);
+    transform: scale(1.1);
+}
+
+.music-btn:hover + .volume-container,
+.volume-container:hover {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.music-btn .fa-pause {
+    display: none;
+}
+
+.music-btn.playing .fa-play {
+    display: none;
+}
+
+.music-btn.playing .fa-pause {
+    display: block;
+}
+
+.volume-container {
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 15px 10px;
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.volume-slider {
+    width: 4px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
+    outline: none;
+    -webkit-appearance: slider-vertical;
+    cursor: pointer;
+}
+
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #ffffff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.volume-slider::-webkit-slider-thumb:hover {
+    background: #00ffff;
+    transform: scale(1.2);
+}
+
+.volume-slider::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #ffffff;
+    cursor: pointer;
+    border: none;
+}
+
+#visualizer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+#visualizer.active {
+    opacity: 1;
 }
 
 .everything {
     display: flex;
     justify-content: center;
     width: 100%;
+    z-index: 10;
+    position: relative;
 }
 
 .box {
@@ -25,8 +157,10 @@ body {
     border-radius: 20px;
     padding: 30px;
     margin: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-    box-sizing: border-box;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 2;
 }
 
 .header {
@@ -36,21 +170,20 @@ body {
     margin-bottom: 20px;
 }
 
-.pfp {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 10px;
+.pfp img {
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.2);
 }
 
 .name {
     font-size: 35px;
     margin-bottom: 3px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
 .dis {
     font-size: 15px;
-    color: #ffffff;
+    color: #cccccc;
     margin-bottom: 15px;
     text-align: center;
 }
@@ -61,35 +194,93 @@ body {
     gap: 15px;
 }
 
-.github, .youtube, .twitch, .steam, .telegram, .place {
+.link-button {
     display: flex;
-    height: 50px;
     align-items: center;
-    justify-content: center;
+    height: 50px;
     border-radius: 15px;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
     color: #fdffe3;
     text-decoration: none;
     font-size: 15pt;
     cursor: pointer;
-    border: none;
     padding: 0 20px;
+    position: relative;
+    overflow: hidden;
 }
 
-.youtube { background-color: #FF0033; }
-.twitch { background-color: #7b00ff; }
-.steam { background-color: #00316d; }
-.telegram { background-color: #00a2ff; }
-.place { background-color: #ff6600; }
-.github { background-color: #2d2d2d; }
-
-.github:hover, .youtube:hover, .twitch:hover, 
-.steam:hover, .telegram:hover, .place:hover {
-    transform: scale(1.02);
-    opacity: 0.9;
+.link-button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
 }
 
-.links a i {
-    margin-right: 10px;
+.link-button:hover:before {
+    left: 100%;
+}
+
+.link-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.link-icon {
+    width: 30px;
+    text-align: center;
+    margin-right: 15px;
     font-size: 18px;
+}
+
+.link-text {
+    flex: 1;
+    text-align: left;
+}
+
+#konata {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 300px;
+    height: auto;
+    cursor: grab;
+    z-index: 100;
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+#konata.show {
+    opacity: 1;
+    pointer-events: all;
+}
+
+@media (max-width: 768px) {
+    .box {
+        margin: 10px;
+        padding: 20px;
+    }
+    
+    .audio-controls {
+        top: 10px;
+        right: 10px;
+    }
+    
+    .music-btn {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .volume-slider {
+        height: 80px;
+    }
+    
+    #konata {
+        width: 100px;
+    }
 }

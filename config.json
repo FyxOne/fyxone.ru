@@ -1,0 +1,44 @@
+{
+  "backgrounds": [
+    "https://i.pinimg.com/originals/7d/04/0e/7d040e94931427709008aaeda14db9c8.gif",
+    "https://giffiles.alphacoders.com/215/215982.gif",
+    "https://images.steamusercontent.com/ugc/772848199816029331/B357B38804E0A98C7CE52B34B054B6192B73D7D5/?imw=512&amp;imh=214&amp;ima=fit&amp;impolicy=Letterbox&amp;imcolor=%23000000&amp;letterbox=true",
+    "https://i.pinimg.com/originals/8e/14/55/8e145599d4847e339828787162952035.gif",
+    "https://i.pinimg.com/originals/67/a8/60/67a8609664a4cd529047560cfa3cb832.gif",
+    "https://i.pinimg.com/originals/66/b7/1c/66b71c75101244d6888261e3595c1922.gif"
+    ],
+  "audio": "https://lofi.stream.laut.fm/lofi?t302=2025-10-10_15-05-27&uuid=3b887987-e28a-4db9-abf2-1ac9807c1120",
+  "konataGif": "https://media.tenor.com/-NkQYOJCM_AAAAAi/luckystar-dance-konata-izumi.gif",
+  "links": [
+    {
+      "name": "YouTube",
+      "url": "https://www.youtube.com/@FyxOne_",
+      "color": "#FF0033",
+      "icon": "fab fa-youtube"
+    },
+    {
+      "name": "Twitch", 
+      "url": "https://www.twitch.tv/fyxone",
+      "color": "#7b00ff",
+      "icon": "fab fa-twitch"
+    },
+    {
+      "name": "Telegram",
+      "url": "https://t.me/fyxone_alstr",
+      "color": "#00a2ff",
+      "icon": "fab fa-telegram"
+    },
+    {
+      "name": "Steam",
+      "url": "https://steamcommunity.com/id/FyxOne/",
+      "color": "#00316d",
+      "icon": "fab fa-steam"
+    },
+    {
+      "name": "GitHub",
+      "url": "https://github.com/FyxOne",
+      "color": "#2d2d2d",
+      "icon": "fab fa-github"
+    }
+  ]
+}

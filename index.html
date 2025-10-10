@@ -1,16 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FyxOne</title>
-    <link rel="stylesheet" href="styles.css?v=1.5">
+    <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="pfp.png" type="image/png">
-
-    <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script async src="https://timeweb.cloud/api/v1/cloud-ai/agents/f313fb89-2637-42c1-9ed1-98abcb2651ce/embed.js?collapsed=true"></script>
 </head>
 <body>
+    <div class="pixel-bg"></div>
+    
+    <div class="audio-controls">
+        <button id="musicToggle" class="music-btn">
+            <i class="fas fa-play"></i>
+            <i class="fas fa-pause"></i>
+        </button>
+        <div class="volume-container">
+            <input type="range" id="volumeSlider" min="0" max="100" value="50" class="volume-slider">
+        </div>
+    </div>
+    
+    <canvas id="visualizer"></canvas>
+    
     <div class="everything">
         <div class="box">
             <div class="header">
@@ -18,27 +31,14 @@
                 <div class="name">FyxOne</div>
                 <div class="dis">Мой ник читается как Фи́ксон.</div>
             </div>
-            <div class="links" id="linksContainer">
-                <a href="https://www.youtube.com/@FyxOne_" class="youtube">
-                    <i class="fab fa-youtube"></i> YouTube
-                </a>
-                <a href="https://www.twitch.tv/fyxone" class="twitch">
-                    <i class="fab fa-twitch"></i> Twitch
-                </a>
-                <a href="https://t.me/fyxone_alstr" class="telegram">
-                    <i class="fab fa-telegram"></i> Telegram
-                </a>
-                <a href="https://steamcommunity.com/id/FyxOne/" class="steam">
-                    <i class="fab fa-steam"></i> Steam
-                </a>
-                <a href="https://github.com/FyxOne" class="github">
-                    <i class="fab fa-github"></i> GitHub
-                </a>
-                <a href="http://place.fyxone.ru" class="place">
-                    <i class="fas fa-place"></i> place.fyxone
-                </a>
-            </div>
+            <div class="links" id="linksContainer"></div>
         </div>
     </div>
+
+    <img id="konata" alt="Konata dance" draggable="false">
+
+    <audio id="lofiStream" crossorigin="anonymous"></audio>
+
+    <script src="script.js"></script>
 </body>
 </html>
