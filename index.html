@@ -7,18 +7,74 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="pfp.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <script async src="https://timeweb.cloud/api/v1/cloud-ai/agents/f313fb89-2637-42c1-9ed1-98abcb2651ce/embed.js?collapsed=true"></script>
 </head>
 <body>
     <div class="pixel-bg"></div>
     
-    <div class="audio-controls">
-        <button id="musicToggle" class="music-btn">
-            <i class="fas fa-play"></i>
-            <i class="fas fa-pause"></i>
-        </button>
-        <div class="volume-container">
-            <input type="range" id="volumeSlider" min="0" max="100" value="50" class="volume-slider">
+    <!-- Кнопка открытия панели -->
+    <button id="panel-toggle" class="panel-toggle">
+        <i class="fas fa-ellipsis-h"></i>
+    </button>
+    
+    <!-- Панель управления -->
+    <div id="control-panel" class="control-panel">
+        <div class="panel-section">
+            <h3>Музыка</h3>
+            <button id="musicToggle" class="panel-btn">
+                <i class="fas fa-play"></i>
+                <span>Play Music</span>
+            </button>
+            <div class="volume-control">
+                <i class="fas fa-volume-down"></i>
+                <input type="range" id="volumeSlider" min="0" max="100" value="50">
+                <i class="fas fa-volume-up"></i>
+            </div>
+        </div>
+        
+        <div class="panel-section">
+            <h3>Фоны</h3>
+            <div class="bg-controls">
+                <button id="prev-bg" class="panel-btn">
+                    <i class="fas fa-chevron-left"></i>
+                    <span>Предыдущий</span>
+                </button>
+                <button id="next-bg" class="panel-btn">
+                    <span>Следующий</span>
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            <h3>Кастомный фон</h3>
+            <div class="custom-control">
+                <input type="text" id="bg-url" placeholder="Ссылка на изображение или gif">
+                <button id="save-bg" class="panel-btn small">✓</button>
+                <button id="reset-bg" class="panel-btn small">×</button>
+            </div>
+        </div>
+        
+        <div class="panel-section">
+            <h3>Dance гифка</h3>
+            <div class="custom-control">
+                <input type="text" id="konata-url" placeholder="Ссылка на изображение или gif">
+                <button id="save-konata" class="panel-btn small">✓</button>
+                <button id="reset-konata" class="panel-btn small">×</button>
+            </div>
+        </div>
+        
+        <div class="panel-section">
+            <h3>Радио</h3>
+            <div class="custom-control">
+                <input type="text" id="radio-url" placeholder="Ссылка на поток">
+                <button id="save-radio" class="panel-btn small">✓</button>
+                <button id="reset-radio" class="panel-btn small">×</button>
+            </div>
+        </div>
+        
+        <div class="panel-section">
+            <h3>Визуализатор</h3>
+            <div class="color-control">
+                <input type="color" id="visualizer-color" value="#ffffff">
+                <label for="visualizer-color">Цвет</label>
+            </div>
         </div>
     </div>
     
@@ -32,6 +88,16 @@
                 <div class="dis">Мой ник читается как Фи́ксон.</div>
             </div>
             <div class="links" id="linksContainer"></div>
+        </div>
+        
+        <!-- Виджет с датой и погодой -->
+        <div class="box info-widget">
+            <div id="datetime-widget" class="datetime"></div>
+            <div id="holiday-widget" class="holiday"></div>
+            <div id="weather-widget" class="weather">
+                <span id="weather-icon">⏳</span>
+                <span id="weather-text">Загрузка погоды...</span>
+            </div>
         </div>
     </div>
 

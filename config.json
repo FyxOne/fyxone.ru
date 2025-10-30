@@ -1,14 +1,43 @@
 {
   "backgrounds": [
     "https://i.pinimg.com/originals/7d/04/0e/7d040e94931427709008aaeda14db9c8.gif",
-    "https://giffiles.alphacoders.com/215/215982.gif",
+    "https://noikcloud.xyz/2dEpuMK",
     "https://images.steamusercontent.com/ugc/772848199816029331/B357B38804E0A98C7CE52B34B054B6192B73D7D5/?imw=512&amp;imh=214&amp;ima=fit&amp;impolicy=Letterbox&amp;imcolor=%23000000&amp;letterbox=true",
-    "https://i.pinimg.com/originals/8e/14/55/8e145599d4847e339828787162952035.gif",
     "https://i.pinimg.com/originals/67/a8/60/67a8609664a4cd529047560cfa3cb832.gif",
-    "https://i.pinimg.com/originals/66/b7/1c/66b71c75101244d6888261e3595c1922.gif"
-    ],
+    "https://i.pinimg.com/originals/66/b7/1c/66b71c75101244d6888261e3595c1922.gif",
+    "https://i.pinimg.com/originals/b9/1c/05/b91c051f5d6b17dbeb63f0e5e59d2127.gif",
+    "https://i.pinimg.com/originals/c0/36/28/c03628e7339e0d492cdd077acb6a9e8f.gif",
+    "https://i.pinimg.com/originals/f1/63/11/f16311fd0c32786525f471c685bc516e.gif"
+  ],
   "audio": "https://lofi.stream.laut.fm/lofi?t302=2025-10-10_15-05-27&uuid=3b887987-e28a-4db9-abf2-1ac9807c1120",
   "konataGif": "https://media.tenor.com/-NkQYOJCM_AAAAAi/luckystar-dance-konata-izumi.gif",
+  "visualizerColor": "#ffffff",
+  "weatherEmojis": {
+    "Sunny": "☀️",
+    "Clear": "☀️",
+    "Partly cloudy": "⛅",
+    "Cloudy": "☁️",
+    "Overcast": "🌫️",
+    "Mist": "🌫️",
+    "Rain": "🌧️",
+    "Snow": "❄️",
+    "Thunderstorm": "⛈️",
+    "Fog": "🌫️",
+    "Drizzle": "🌦️"
+  },
+  "holidays": [
+    {"date": "01-01", "name": "🎄 Новый год"},
+    {"date": "01-05", "name": "💎"},
+    {"date": "02-14", "name": "💘 День святого Валентина"},
+    {"date": "02-23", "name": "🎖️ День защитника Отечества"},
+    {"date": "03-08", "name": "🌷 Международный женский день"},
+    {"date": "05-01", "name": "👷 День труда"},
+    {"date": "05-09", "name": "🎖️ День Победы"},
+    {"date": "06-12", "name": "⬜🟦🟥 День России"},
+    {"date": "10-31", "name": "🎃 Хеллоуин"},
+    {"date": "11-04", "name": "🎆 День народного единства"},
+    {"date": "12-31", "name": "🎄 Канун Нового года"}
+  ],
   "links": [
     {
       "name": "YouTube",
