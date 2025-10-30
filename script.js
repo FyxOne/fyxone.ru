@@ -157,6 +157,10 @@ function setupKonata() {
 
 // Дата, время и праздники
 function startDateTime() {
+    function capitalizeFirst(str) {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
     function updateDateTime() {
         const now = new Date();
         const dateString = now.toLocaleDateString('ru-RU', { 
@@ -171,7 +175,10 @@ function startDateTime() {
             second: '2-digit'
         });
         
-        elements.datetimeWidget.textContent = `${dateString} • ${timeString}`;
+        // Делаем первую букву заглавной
+        const capitalizedDate = capitalizeFirst(dateString);
+        
+        elements.datetimeWidget.textContent = `${capitalizedDate} • ${timeString}`;
         checkHolidays(now);
     }
     
