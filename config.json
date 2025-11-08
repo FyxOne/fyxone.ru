@@ -1,4 +1,9 @@
 {
+  "user": {
+    "name": "FyxOne",
+    "bio": "Мой ник читается как Фи́ксон.",
+    "avatar": "resources/pfp.png"
+  },
   "backgrounds": [
     "https://i.pinimg.com/originals/7d/04/0e/7d040e94931427709008aaeda14db9c8.gif",
     "https://noikcloud.xyz/2dEpuMK",
@@ -56,31 +61,49 @@
       "name": "YouTube",
       "url": "https://www.youtube.com/@FyxOne_",
       "color": "#FF0033",
-      "icon": "fab fa-youtube"
+      "icon": "fab fa-youtube",
+      "customIcon": "",
+      "customBackground": ""
     },
     {
       "name": "Twitch", 
       "url": "https://www.twitch.tv/fyxone",
       "color": "#7b00ff",
-      "icon": "fab fa-twitch"
+      "icon": "fab fa-twitch",
+      "customIcon": "",
+      "customBackground": ""
     },
     {
       "name": "Telegram",
       "url": "https://t.me/fyxone_alstr",
       "color": "#00a2ff",
-      "icon": "fab fa-telegram"
+      "icon": "fab fa-telegram",
+      "customIcon": "",
+      "customBackground": ""
     },
     {
       "name": "Steam",
       "url": "https://steamcommunity.com/id/FyxOne/",
       "color": "#00316d",
-      "icon": "fab fa-steam"
+      "icon": "fab fa-steam",
+      "customIcon": "",
+      "customBackground": ""
     },
     {
       "name": "GitHub",
       "url": "https://github.com/FyxOne",
-      "color": "#2d2d2d",
-      "icon": "fab fa-github"
+      "color": "#222222",
+      "icon": "fab fa-github",
+      "customIcon": "",
+      "customBackground": ""
+    },
+    {
+      "name": "image.png",
+      "url": "https://t.me/imagebmp",
+      "color": "#ff6b6b",
+      "icon": "",
+      "customIcon": "resources/folder.png",
+      "customBackground": "resources/bliss.png"
     }
   ]
 }

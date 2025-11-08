@@ -29,7 +29,10 @@ const elements = {
     datetimeWidget: document.getElementById('datetime-widget'),
     holidayWidget: document.getElementById('holiday-widget'),
     weatherIcon: document.getElementById('weather-icon'),
-    weatherText: document.getElementById('weather-text')
+    weatherText: document.getElementById('weather-text'),
+    userAvatar: document.getElementById('user-avatar'),
+    userName: document.getElementById('user-name'),
+    userBio: document.getElementById('user-bio')
 };
 
 const ctx = elements.visualizer.getContext('2d');
@@ -48,6 +51,7 @@ async function loadConfig() {
 // Инициализация
 function init() {
     loadSavedSettings();
+    setupUserProfile();
     setupBackground();
     setupAudio();
     generateLinks();
@@ -56,6 +60,21 @@ function init() {
     resizeCanvas();
     startDateTime();
     loadWeather();
+}
+
+function setupUserProfile() {
+    if (config.user) {
+        if (config.user.avatar) {
+            elements.userAvatar.src = config.user.avatar;
+        }
+        if (config.user.name) {
+            elements.userName.textContent = config.user.name;
+            document.title = config.user.name;
+        }
+        if (config.user.bio) {
+            elements.userBio.textContent = config.user.bio;
+        }
+    }
 }
 
 function loadSavedSettings() {
@@ -134,14 +153,40 @@ function generateLinks() {
     config.links.forEach(link => {
         const linkElement = document.createElement('a');
         linkElement.href = link.url;
-        linkElement.className = 'link-button';
-        linkElement.style.backgroundColor = link.color;
+        linkElement.className = 'link-tile';
         linkElement.target = '_blank';
         linkElement.rel = 'noopener noreferrer';
-        linkElement.innerHTML = `
-            <div class="link-icon"><i class="${link.icon}"></i></div>
-            <div class="link-text">${link.name}</div>
-        `;
+        
+        // Устанавливаем фон кнопки
+        if (link.customBackground) {
+            linkElement.style.backgroundImage = `url('${link.customBackground}')`;
+            linkElement.style.backgroundSize = 'cover';
+            linkElement.style.backgroundPosition = 'center';
+        } else {
+            linkElement.style.backgroundColor = link.color;
+        }
+        
+        // Создаем иконку
+        const iconElement = document.createElement('div');
+        iconElement.className = 'link-icon';
+        
+        if (link.customIcon) {
+            // Кастомная иконка как изображение
+            iconElement.innerHTML = `<img src="${link.customIcon}" alt="${link.name}">`;
+            iconElement.classList.add('custom-image');
+        } else if (link.icon) {
+            // Иконка FontAwesome
+            iconElement.innerHTML = `<i class="${link.icon}"></i>`;
+        } else {
+            // Первая буква названия как fallback
+            iconElement.textContent = link.name.charAt(0);
+            iconElement.style.fontSize = '24px';
+            iconElement.style.fontWeight = 'bold';
+        }
+        
+        linkElement.appendChild(iconElement);
+        linkElement.title = link.name; // Добавляем подсказку с названием
+        
         elements.linksContainer.appendChild(linkElement);
     });
 }
