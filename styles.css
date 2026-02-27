@@ -405,6 +405,11 @@ body {
     pointer-events: all;
 }
 
+button, .panel-btn, .link-tile, .pfp img {
+    outline: none !important;
+    border: none !important;
+}
+
 /* Адаптация для мобильных устройств */
 @media (max-width: 768px) {
     .everything {

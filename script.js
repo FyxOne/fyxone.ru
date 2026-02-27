@@ -252,9 +252,22 @@ async function loadWeather() {
         const configRes = await fetch('config.json');
         const config = await configRes.json();
 
-        const geoRes = await fetch('https://ipwhois.app/json/');
-        if (!geoRes.ok) throw new Error('Не удалось получить данные по IP');
-        const geoData = await geoRes.json();
+        // Пробуем несколько сервисов для определения местоположения
+        let geoData;
+        try {
+            // Сначала пробуем ipapi.co
+            const response = await fetch('https://ipapi.co/json/');
+            geoData = await response.json();
+        } catch (e) {
+            // Если не сработал, пробуем альтернативный
+            const fallbackResponse = await fetch('https://ipinfo.io/json?token='); // без токена дает базовую информацию
+            geoData = await fallbackResponse.json();
+            // Конвертируем формат ipinfo в нужный нам
+            const loc = geoData.loc.split(',');
+            geoData.latitude = parseFloat(loc[0]);
+            geoData.longitude = parseFloat(loc[1]);
+            geoData.city = geoData.city;
+        }
 
         const latitude = geoData.latitude;
         const longitude = geoData.longitude;
